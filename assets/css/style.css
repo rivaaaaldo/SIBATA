@@ -255,3 +255,383 @@ body.login{min-height:100vh;display:flex;align-items:center;justify-content:cent
 .submit:hover{background:#0f766e;border-color:#0f766e}
 .hint{text-align:center;font-size:.8rem;color:var(--mut);margin:.7rem 0 0}
 @media(max-width:480px){.form-card{padding:1rem}.preview img{width:76px;height:57px}}
+
+/* ==========================================
+   REDESIGN UI/UX - BLUE & WHITE
+   Sistem Peminjaman Alat Laboratorium
+========================================== */
+
+/* COLOR PALETTE */
+:root {
+    --p: #2563eb;
+    --p-d: #1d4ed8;
+    --p-s: #eff6ff;
+    --navy: #10213f;
+    --ink: #243247;
+    --mut: #64748b;
+    --bg: #f4f7fc;
+    --card: #ffffff;
+    --bd: #e3eaf4;
+    --r: 14px;
+    --sh: 0 2px 8px rgba(15, 35, 70, .045),
+          0 8px 24px rgba(15, 35, 70, .045);
+}
+
+/* GLOBAL */
+body {
+    background: var(--bg);
+    color: var(--ink);
+    letter-spacing: .005em;
+    font-family: Inter, system-ui, sans-serif;
+}
+
+h1, h2, h3 {
+    color: var(--navy);
+    font-weight: 700;
+}
+
+a {
+    color: var(--p-d);
+}
+
+:focus-visible {
+    outline: 3px solid rgba(37, 99, 235, .35);
+    outline-offset: 2px;
+}
+
+/* NAVBAR */
+.topbar {
+    background: #ffffff;
+    color: var(--navy);
+    border-bottom: 1px solid var(--bd);
+    box-shadow: 0 2px 12px rgba(15, 35, 70, .045);
+}
+
+.brand {
+    color: var(--navy);
+}
+
+.nav a {
+    color: #64748b;
+    transition: .2s ease;
+}
+
+.nav a:hover,
+.nav a.on {
+    background: var(--p-s);
+    color: var(--p-d);
+}
+
+.logo {
+    background: var(--p);
+    box-shadow: 0 4px 10px rgba(37, 99, 235, .18);
+}
+
+/* LAYOUT */
+.container {
+    padding-top: 1.8rem;
+}
+
+.card,
+.panel,
+.form-card,
+.box {
+    border-color: var(--bd);
+    box-shadow: var(--sh);
+    border-radius: var(--r);
+}
+
+/* BUTTON */
+.btn {
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(37, 99, 235, .12);
+    transition: all .2s ease;
+}
+
+.btn:hover {
+    background: var(--p-d);
+    border-color: var(--p-d);
+    box-shadow: 0 5px 12px rgba(37, 99, 235, .18);
+    transform: translateY(-1px);
+}
+
+.btn.sec {
+    background: #fff;
+    color: var(--ink);
+    border-color: var(--bd);
+    box-shadow: none;
+}
+
+.btn.sec:hover {
+    background: #f1f5f9;
+    transform: none;
+}
+
+/* INPUT & FORM */
+input[type=text],
+input[type=search],
+input[type=tel],
+input[type=password],
+input[type=date],
+select {
+    border-color: #d7e0ed;
+    border-radius: 10px;
+    background: #fff;
+    transition: all .2s ease;
+}
+
+input:focus,
+select:focus {
+    border-color: var(--p);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, .12);
+}
+
+/* HERO SECTION */
+.hero {
+    background: linear-gradient(
+        180deg,
+        #ffffff 0%,
+        #f8fbff 100%
+    );
+}
+
+.hero .in {
+    padding-top: 2.6rem;
+    padding-bottom: 2.2rem;
+}
+
+.eyebrow,
+.tag {
+    background: var(--p-s);
+    color: var(--p-d);
+}
+
+.steps b {
+    background: var(--p);
+}
+
+/* FILTER */
+.chip {
+    transition: all .2s ease;
+}
+
+.chip:hover {
+    border-color: var(--p);
+    color: var(--p);
+}
+
+.chip.aktif {
+    background: var(--p);
+    color: #fff;
+    border-color: var(--p);
+}
+
+/* SEARCH */
+.search input {
+    border-radius: 10px;
+}
+
+/* ITEM CATALOG */
+.item {
+    border-radius: 14px;
+    border: 1px solid var(--bd);
+    background: #fff;
+    overflow: hidden;
+    transition: all .25s ease;
+}
+
+.item:hover {
+    border-color: #c8d9f5;
+    box-shadow: 0 12px 28px rgba(15, 35, 70, .09);
+    transform: translateY(-3px);
+}
+
+.info {
+    padding: 1.1rem;
+}
+
+.nama {
+    color: var(--navy);
+    line-height: 1.35;
+}
+
+.foto,
+.noimg {
+    background: #eaf0f8;
+}
+
+/* EMPTY STATE */
+.kosong {
+    background: #fff;
+    border: 1px dashed #cbd5e1;
+    border-radius: 14px;
+}
+
+/* ADMIN DASHBOARD */
+.stat {
+    padding: 1.2rem;
+    border-radius: 14px;
+    background: #fff;
+    border: 1px solid var(--bd);
+    box-shadow: var(--sh);
+}
+
+.stat .n {
+    color: var(--p-d);
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.stat .t {
+    color: var(--mut);
+}
+
+.panel,
+.form-card {
+    border-radius: 14px;
+}
+
+.panel-h {
+    margin-bottom: 1.2rem;
+}
+
+/* TABLE */
+.scroll {
+    border-radius: 12px;
+    border: 1px solid var(--bd);
+    overflow-x: auto;
+}
+
+th {
+    background: #f3f7fd;
+    color: #52647d;
+}
+
+tbody tr:hover {
+    background: #f7faff;
+}
+
+td,
+th {
+    padding: .85rem .9rem;
+}
+
+/* MODAL */
+.modal {
+    border-radius: 16px;
+    box-shadow: 0 24px 70px rgba(15, 35, 70, .22);
+}
+
+.modal-h {
+    background: #fbfdff;
+}
+
+/* PAGINATION */
+.pg {
+    border-radius: 9px;
+    transition: all .2s ease;
+}
+
+.pg:hover {
+    border-color: var(--p);
+    color: var(--p);
+}
+
+.pg.on {
+    background: var(--p);
+    border-color: var(--p);
+    color: #fff;
+}
+
+/* LOGIN */
+body.login {
+    background: linear-gradient(
+        180deg,
+        #163b78 0%,
+        #2563eb 38%,
+        #f4f7fc 38%
+    );
+}
+
+.box {
+    background: #fff;
+    border: 1px solid var(--bd);
+    border-radius: 16px;
+    box-shadow: 0 12px 35px rgba(15, 35, 70, .10);
+}
+
+/* FORM PEMINJAMAN */
+.ai {
+    background: #f5f9ff;
+    border-color: #c9dcfb;
+}
+
+.drop {
+    border-color: #93b8f4;
+    background: #fbfdff;
+    border-radius: 12px;
+    transition: all .2s ease;
+}
+
+.drop:hover,
+.drop:focus-within {
+    background: #eff6ff;
+    border-color: var(--p);
+}
+
+.drop svg {
+    color: var(--p);
+}
+
+/* OCR LOADING */
+.ocr-status.is-loading {
+    background: #f5f9ff;
+    border-color: #bfdbfe;
+    color: #1d4ed8;
+}
+
+.ocr-bar {
+    background: #dbeafe;
+}
+
+/* SUBMIT BUTTON */
+.submit {
+    background: var(--p);
+    border-color: var(--p);
+    box-shadow: 0 3px 8px rgba(37, 99, 235, .2);
+}
+
+.submit:hover {
+    background: var(--p-d);
+    border-color: var(--p-d);
+}
+
+/* RESPONSIVE */
+@media (max-width: 700px) {
+    .topbar .in {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .nav {
+        width: 100%;
+        padding-bottom: .15rem;
+    }
+
+    .container {
+        padding-top: 1.2rem;
+    }
+
+    .hero .in {
+        padding-top: 1.8rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+    }
+}

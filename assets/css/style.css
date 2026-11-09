@@ -1666,3 +1666,562 @@ body.login{
     transform:none;
   }
 }
+
+
+/* =========================================================
+   SIBATA — VISUAL UPGRADE
+   Modern SaaS Dashboard • Blue & White • Motion
+   ========================================================= */
+
+/* 1. AMBIENT BACKGROUND */
+
+body {
+  background-color: #f8faff;
+  background-image:
+    radial-gradient(ellipse at 8% 5%, rgba(59,130,246,.10), transparent 32%),
+    radial-gradient(ellipse at 95% 35%, rgba(96,165,250,.09), transparent 30%),
+    radial-gradient(circle, rgba(37,99,235,.055) 1px, transparent 1px);
+  background-size: auto, auto, 26px 26px;
+  background-attachment: fixed;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  width: 420px;
+  height: 420px;
+  top: 15%;
+  right: -180px;
+  border-radius: 50%;
+  background: rgba(59,130,246,.07);
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: -1;
+  animation: ambientFloat 12s ease-in-out infinite alternate;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  width: 340px;
+  height: 340px;
+  bottom: -150px;
+  left: -130px;
+  border-radius: 50%;
+  background: rgba(96,165,250,.07);
+  filter: blur(85px);
+  pointer-events: none;
+  z-index: -1;
+  animation: ambientFloat 15s ease-in-out infinite alternate-reverse;
+}
+
+/* 2. NAVBAR UPGRADE */
+
+.topbar {
+  background: rgba(15, 32, 75, .94);
+  border-bottom: 1px solid rgba(255,255,255,.1);
+  box-shadow: 0 8px 30px rgba(15,23,42,.13);
+}
+
+.topbar .in {
+  min-height: 68px;
+}
+
+.logo {
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.brand:hover .logo {
+  transform: rotate(-7deg) scale(1.08);
+  box-shadow: 0 0 22px rgba(59,130,246,.5);
+}
+
+.nav a {
+  position: relative;
+  overflow: hidden;
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 4px;
+  width: 0;
+  height: 2px;
+  background: #93c5fd;
+  border-radius: 10px;
+  transition: all .3s ease;
+  transform: translateX(-50%);
+}
+
+.nav a:hover::after,
+.nav a.on::after {
+  width: 55%;
+}
+
+/* 3. DASHBOARD STATISTICS */
+
+.stats {
+  gap: 1.1rem;
+}
+
+.stat {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding: 1.35rem;
+  border: 1px solid rgba(219,234,254,.9);
+  background: linear-gradient(145deg, #fff 55%, #f1f6ff);
+  box-shadow: 0 5px 20px rgba(30,64,175,.045);
+  animation: dashboardEnter .7s cubic-bezier(.2,.8,.2,1) both;
+}
+
+.stat::before {
+  content: "";
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  top: -55px;
+  right: -35px;
+  border-radius: 50%;
+  background: rgba(59,130,246,.08);
+  z-index: -1;
+  transition: transform .45s ease;
+}
+
+.stat::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  top: 0;
+  left: 0;
+  background: linear-gradient(90deg, #2563eb, #60a5fa, transparent);
+  opacity: .8;
+}
+
+.stat:hover::before {
+  transform: scale(1.8);
+}
+
+.stat:hover {
+  transform: translateY(-6px);
+  border-color: #bfdbfe;
+  box-shadow: 0 16px 35px rgba(37,99,235,.12);
+}
+
+.stat .n {
+  font-size: clamp(1.7rem, 3vw, 2.1rem);
+  letter-spacing: -.04em;
+  transition: color .25s ease;
+}
+
+.stat:hover .n {
+  color: var(--p);
+}
+
+.stats .stat:nth-child(2) {
+  animation-delay: .1s;
+}
+
+.stats .stat:nth-child(3) {
+  animation-delay: .2s;
+}
+
+/* 4. PANEL & CARD */
+
+.panel,
+.form-card,
+.card,
+.box {
+  border: 1px solid rgba(219,228,242,.9);
+  box-shadow: 0 7px 25px rgba(15,23,42,.045);
+  transition: box-shadow .3s ease, border-color .3s ease;
+}
+
+.panel {
+  position: relative;
+  overflow: hidden;
+  background: rgba(255,255,255,.94);
+  backdrop-filter: blur(12px);
+}
+
+.panel:hover,
+.form-card:hover {
+  border-color: rgba(147,197,253,.7);
+  box-shadow: 0 12px 32px rgba(37,99,235,.075);
+}
+
+.panel-h {
+  padding-bottom: .85rem;
+  border-bottom: 1px solid #edf2fa;
+}
+
+.panel-h h2 {
+  font-weight: 750;
+  letter-spacing: -.02em;
+}
+
+/* 5. BUTTON MICRO INTERACTION */
+
+.btn {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    transform .25s cubic-bezier(.2,.8,.2,1),
+    box-shadow .25s ease,
+    background .25s ease;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 70%;
+  height: 100%;
+  background: linear-gradient(
+    110deg,
+    transparent,
+    rgba(255,255,255,.3),
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: left .55s ease;
+  z-index: -1;
+}
+
+.btn:hover::before {
+  left: 150%;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 9px 22px rgba(37,99,235,.22);
+}
+
+.btn:active {
+  transform: scale(.96);
+}
+
+/* 6. TABLE UPGRADE */
+
+.scroll {
+  border-radius: 14px;
+  border-color: #e2eaf5;
+  box-shadow: 0 4px 16px rgba(15,23,42,.025);
+}
+
+th {
+  padding: .95rem .85rem;
+  background: linear-gradient(180deg, #eff6ff, #eaf2ff);
+  color: #1e3a8a;
+  border-bottom: 1px solid #dbeafe;
+}
+
+td {
+  padding: .9rem .85rem;
+}
+
+tbody tr {
+  transition: background .25s ease, transform .25s ease;
+}
+
+tbody tr:hover {
+  background: #f0f6ff;
+}
+
+td img {
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+td img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 5px 14px rgba(15,23,42,.15);
+}
+
+/* 7. FORM UPGRADE */
+
+input[type=text],
+input[type=search],
+input[type=tel],
+input[type=password],
+input[type=date],
+select {
+  border-color: #d8e2f0;
+  background: #fbfdff;
+  transition:
+    border-color .25s ease,
+    box-shadow .25s ease,
+    background .25s ease,
+    transform .25s ease;
+}
+
+input:focus,
+select:focus {
+  background: #fff;
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 4px rgba(59,130,246,.12);
+}
+
+.drop {
+  border-color: #93c5fd;
+  background:
+    radial-gradient(circle at top right, rgba(96,165,250,.1), transparent 45%),
+    #f8fbff;
+}
+
+.drop:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(37,99,235,.08);
+}
+
+/* 8. CATALOG CARD */
+
+.item {
+  border-color: #e4ebf5;
+  box-shadow: 0 5px 20px rgba(15,23,42,.045);
+}
+
+.item:hover {
+  transform: translateY(-9px);
+  box-shadow: 0 20px 40px rgba(37,99,235,.13);
+  border-color: #bfdbfe;
+}
+
+.item .info {
+  background: linear-gradient(180deg, #fff, #fbfdff);
+}
+
+.tag {
+  border: 1px solid #dbeafe;
+}
+
+.nama {
+  transition: color .25s ease;
+}
+
+.item:hover .nama {
+  color: #2563eb;
+}
+
+/* 9. HERO MOTION */
+
+.hero {
+  background:
+    radial-gradient(circle at 85% 20%, rgba(59,130,246,.17), transparent 30%),
+    radial-gradient(circle at 5% 95%, rgba(96,165,250,.15), transparent 32%),
+    linear-gradient(125deg, #edf4ff, #fff 65%);
+}
+
+.hero::after {
+  animation: heroOrbit 18s linear infinite;
+}
+
+.hero .in {
+  animation: dashboardEnter .8s cubic-bezier(.2,.8,.2,1) both;
+}
+
+.eyebrow {
+  box-shadow: 0 4px 12px rgba(37,99,235,.07);
+}
+
+/* 10. LOGIN PAGE */
+
+body.login {
+  background:
+    radial-gradient(circle at 15% 20%, rgba(96,165,250,.25), transparent 32%),
+    radial-gradient(circle at 90% 80%, rgba(37,99,235,.18), transparent 35%),
+    linear-gradient(180deg, #172554 0%, #1e40af 38%, #f5f8ff 38%);
+}
+
+.box {
+  animation: loginEnter .75s cubic-bezier(.2,.8,.2,1) both;
+  box-shadow: 0 25px 70px rgba(15,23,42,.18);
+}
+
+.box .logo {
+  animation: logoFloat 4s ease-in-out infinite;
+}
+
+/* 11. MODAL */
+
+.modal[open] {
+  animation: modalUpgrade .35s cubic-bezier(.2,.8,.2,1);
+}
+
+.modal::backdrop {
+  background: rgba(15,23,42,.55);
+  backdrop-filter: blur(7px);
+}
+
+/* 12. GLOBAL MOTION */
+
+@keyframes ambientFloat {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(-35px, 25px, 0) scale(1.15);
+  }
+}
+
+@keyframes dashboardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes loginEnter {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes logoFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes heroOrbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes modalUpgrade {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* 13. RESPONSIVE MOTION */
+
+@media (max-width: 700px) {
+  .stat {
+    padding: 1.1rem;
+  }
+
+  .panel {
+    border-radius: 14px;
+  }
+
+  .item:hover {
+    transform: translateY(-3px);
+  }
+}
+
+@media (hover: none) {
+  .btn:hover,
+  .item:hover,
+  .stat:hover {
+    transform: none;
+  }
+}
+
+/* 14. ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+  body::before,
+  body::after,
+  .hero::after,
+  .box .logo {
+    animation: none !important;
+  }
+}
+
+
+/* ==========================================
+   SIBATA — INTERACTIVE 2D COMPUTER LAB
+========================================== */
+
+body {
+    position: relative;
+    background: #f8fbff !important;
+}
+
+/* Background illustration */
+.sibata-mouse-bg {
+    position: fixed;
+    inset: -20px;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            rgba(255, 255, 255, 0.48),
+            rgba(255, 255, 255, 0.58)
+        ),
+        url("../img/lab-background.png") center center / cover no-repeat;
+
+    transform: translate3d(
+        var(--move-x, 0px),
+        var(--move-y, 0px),
+        0
+    ) scale(1.04);
+
+    transition: transform 0.2s ease-out;
+    will-change: transform;
+}
+
+/* Cahaya mengikuti kursor */
+.sibata-mouse-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: radial-gradient(
+        350px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(40, 145, 255, 0.20),
+        transparent 75%
+    );
+
+    transition: opacity 0.2s ease;
+}
+
+/* Pastikan konten berada di atas background */
+body > *:not(.sibata-mouse-bg) {
+    position: relative;
+    z-index: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sibata-mouse-bg {
+        inset: 0;
+        transform: none;
+        background-position: center;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .sibata-mouse-bg {
+        transition: none;
+    }
+}

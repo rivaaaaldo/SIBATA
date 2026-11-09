@@ -128,5 +128,48 @@
         showToast(t.msg, t.type || 'ok', { title: t.title });
       }, i * 200);
     });
+    
+  // ==========================================
+  // SIBATA — INTERACTIVE COMPUTER LAB BACKGROUND
+  // ==========================================
+
+  document.addEventListener('DOMContentLoaded', function () {
+    // Cegah background dibuat dua kali
+    if (document.querySelector('.sibata-mouse-bg')) return;
+
+    const bg = document.createElement('div');
+    bg.className = 'sibata-mouse-bg';
+    bg.setAttribute('aria-hidden', 'true');
+
+    document.body.prepend(bg);
+
+    // Nonaktifkan gerakan pada touchscreen
+    const isTouch = window.matchMedia('(pointer: coarse)').matches;
+    const reduceMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    ).matches;
+
+    if (isTouch || reduceMotion) return;
+
+    let animationFrame;
+
+    document.addEventListener('mousemove', function (e) {
+      cancelAnimationFrame(animationFrame);
+
+      animationFrame = requestAnimationFrame(function () {
+        const centerX = window.innerWidth / 2;
+        const centerY = window.innerHeight / 2;
+
+        const moveX = ((e.clientX - centerX) / centerX) * 10;
+        const moveY = ((e.clientY - centerY) / centerY) * 10;
+
+        bg.style.setProperty('--move-x', `${moveX}px`);
+        bg.style.setProperty('--move-y', `${moveY}px`);
+        bg.style.setProperty('--mouse-x', `${e.clientX}px`);
+        bg.style.setProperty('--mouse-y', `${e.clientY}px`);
+      });
+    });
+  });
+
   });
 })();
